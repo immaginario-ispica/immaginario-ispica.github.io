@@ -1,0 +1,26 @@
+---
+import NavLink from './NavLink.astro';
+---
+
+<header class="bg-white border-b border-gray-200">
+  <div class="container mx-auto px-4 py-6">
+    <!-- Logo -->
+    <div class="text-center mb-4">
+      <a href="/" class="inline-block">
+        <h1 class="text-5xl font-bold tracking-tight text-black mb-1">L'IMMAGINARIO</h1>
+        <p class="text-lg font-medium text-gray-700">ISPICA E LE SUE IMMAGINI periodico di società e costume</p>
+        <p class="text-base text-gray-600">del Centro di Cultura per l'Educazione Permanente</p>
+      </a>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="flex flex-wrap justify-center space-x-6 mt-4">
+      <NavLink href="/" label="Home" />
+      <NavLink href="/archivio" label="Archivio Numeri" />
+      <NavLink href="/redazione" label="Redazione & Collabora" />
+      <NavLink href="/abbonati" label="Abbonati" />
+      <NavLink href="/centro-cultura" label="Centro di Cultura" />
+      <NavLink href="/contatti" label="Contatti" />
+    </nav>
+  </div>
+</header>

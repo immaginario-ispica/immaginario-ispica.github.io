@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import FeaturedArticle from '../components/FeaturedArticle.astro';
+import IssueCover from '../components/IssueCover.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Button from '../components/Button.astro';
+
+// Sample data - This would usually come from a CMS or API
+const latestIssue = {
+  coverImage: "https://placehold.co/600x800/e5edff/333333?text=L'Immaginario+Maggio+2025",
+  title: "Primavera di Cultura: Eventi e Iniziative",
+  issueNumber: "42",
+  date: "Maggio 2025",
+  pdfLink: "#",
+  description: "In questo numero esploriamo le iniziative culturali della stagione, con un focus speciale sul festival letterario di Ispica e le nuove mostre d'arte contemporanea."
+};
+
+const featuredArticles = [
+  {
+    title: "Il Festival Letterario di Ispica: Un Successo",
+    excerpt: "La terza edizione del festival ha attirato visitatori da tutta la Sicilia, con un programma ricco di incontri con autori e laboratori creativi.",
+    image: "https://placehold.co/800x500/e5edff/333333?text=Festival+Letterario",
+    href: "#",
+    date: "Maggio 2025",
+    author: "Maria Rossi"
+  },
+  {
+    title: "La Nuova Stagione Teatrale del Centro",
+    excerpt: "Presentazione delle opere in programma per la stagione estiva, con produzioni originali e classici rivisitati.",
+    image: "https://placehold.co/800x500/fff5e5/333333?text=Teatro",
+    href: "#",
+    date: "Maggio 2025",
+    author: "Paolo Bianchi"
+  },
+  {
+    title: "Arte e Territorio: La Mostra Fotografica",
+    excerpt: "Un percorso visivo attraverso i paesaggi e le tradizioni del territorio ibleo, raccontato attraverso gli occhi di fotografi locali e internazionali.",
+    image: "https://placehold.co/800x500/e5fff5/333333?text=Mostra+Fotografica",
+    href: "#",
+    date: "Maggio 2025",
+    author: "Giovanna Verdi"
+  }
+];
+
+const recentIssues = [
+  {
+    coverImage: "https://placehold.co/400x550/fff5e5/333333?text=L'Immaginario+Aprile+2025",
+    title: "Tradizioni Pasquali nel Territorio",
+    issueNumber: "41",
+    date: "Aprile 2025",
+    pdfLink: "#"
+  },
+  {
+    coverImage: "https://placehold.co/400x550/e5fff5/333333?text=L'Immaginario+Marzo+2025",
+    title: "Donne e Cultura: Storie di Innovazione",
+    issueNumber: "40",
+    date: "Marzo 2025",
+    pdfLink: "#"
+  },
+  {
+    coverImage: "https://placehold.co/400x550/f5e5ff/333333?text=L'Immaginario+Febbraio+2025",
+    title: "Carnevale: Tra Storia e Divertimento",
+    issueNumber: "39",
+    date: "Febbraio 2025",
+    pdfLink: "#"
+  }
+];
+---
+
+<Layout title="Home" showNewsletter={false}>
+  <!-- Hero Section -->
+  <HeroSection 
+    coverImage={latestIssue.coverImage}
+    issueTitle={latestIssue.title}
+    issueNumber={latestIssue.issueNumber}
+    issueDate={latestIssue.date}
+    issuePdfLink={latestIssue.pdfLink}
+  />
+  
+  <!-- Featured Articles -->
+  <section id="featured-articles" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-serif font-bold mb-4">Articoli in Evidenza</h2>
+        <p class="text-neutral-600 max-w-3xl mx-auto">
+          Scopri alcuni degli articoli più interessanti dell'ultimo numero de L'Immaginario
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredArticles.map(article => (
+          <FeaturedArticle
+            title={article.title}
+            excerpt={article.excerpt}
+            image={article.image}
+            href={article.href}
+            date={article.date}
+            author={article.author}
+          />
+        ))}
+      </div>
+      
+      <div class="mt-12 text-center">
+        <Button href={latestIssue.pdfLink} variant="primary">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          </svg>
+          Leggi l'intero numero
+        </Button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Recent Issues -->
+  <section class="py-16 bg-neutral-100">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-serif font-bold mb-4">Numeri Recenti</h2>
+        <p class="text-neutral-600 max-w-3xl mx-auto">
+          Esplora i numeri precedenti de L'Immaginario e scopri i contenuti che ti sei perso
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="lg:col-span-1">
+          <IssueCover
+            coverImage={latestIssue.coverImage}
+            title={latestIssue.title}
+            issueNumber={latestIssue.issueNumber}
+            date={latestIssue.date}
+            pdfLink={latestIssue.pdfLink}
+            featured={true}
+            description={latestIssue.description}
+          />
+        </div>
+        
+        <div class="lg:col-span-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recentIssues.map(issue => (
+              <IssueCover
+                coverImage={issue.coverImage}
+                title={issue.title}
+                issueNumber={issue.issueNumber}
+                date={issue.date}
+                pdfLink={issue.pdfLink}
+              />
+            ))}
+          </div>
+          
+          <div class="mt-8 text-center">
+            <Button href="/archivio" variant="outline">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+              </svg>
+              Esplora l'archivio completo
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Newsletter Section -->
+  <div id="abbonati">
+    <Newsletter />
+  </div>
+</Layout>

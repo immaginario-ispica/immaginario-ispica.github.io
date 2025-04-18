@@ -1,0 +1,254 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+// Sample data - This would usually come from a CMS or API
+const teamMembers = [
+  {
+    name: "Marco Bianchi",
+    role: "Direttore Editoriale",
+    bio: "Giornalista con oltre 20 anni di esperienza, ha fondato L'Immaginario nel 2015 con l'obiettivo di creare uno spazio di informazione e cultura per la comunità di Ispica.",
+    image: "https://placehold.co/300x300/e5edff/333333?text=MB"
+  },
+  {
+    name: "Laura Verdi",
+    role: "Caporedattrice",
+    bio: "Scrittrice e docente di lettere, coordina il lavoro della redazione e cura personalmente la sezione dedicata alla letteratura e agli eventi culturali.",
+    image: "https://placehold.co/300x300/fff5e5/333333?text=LV"
+  },
+  {
+    name: "Antonio Russo",
+    role: "Redattore Arte e Cultura",
+    bio: "Critico d'arte e curatore di mostre, si occupa delle sezioni dedicate alle arti visive e al patrimonio culturale del territorio.",
+    image: "https://placehold.co/300x300/e5fff5/333333?text=AR"
+  },
+  {
+    name: "Giovanna Marino",
+    role: "Redattrice Eventi e Territorio",
+    bio: "Esperta di tradizioni locali e promotrice culturale, coordina la sezione dedicata agli eventi e alle manifestazioni del territorio.",
+    image: "https://placehold.co/300x300/f5e5ff/333333?text=GM"
+  }
+];
+---
+
+<Layout title="Redazione & Collabora" description="Scopri chi c'è dietro L'Immaginario e come puoi contribuire con i tuoi articoli" showNewsletter={true}>
+  <!-- Team Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h1 class="text-4xl font-serif font-bold mb-4">La Nostra Redazione</h1>
+        <p class="text-neutral-600">
+          Scopri le persone che ogni mese lavorano con passione per creare L'Immaginario
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {teamMembers.map(member => (
+          <div class="bg-neutral-50 rounded-lg p-6 text-center">
+            <div class="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full">
+              <img src={member.image} alt={member.name} class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-xl font-serif font-bold">{member.name}</h3>
+            <p class="text-primary-700 font-medium mb-3">{member.role}</p>
+            <p class="text-neutral-600 text-sm">{member.bio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Mission Section -->
+  <section class="py-16 bg-primary-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-8 text-center">
+          <h2 class="text-3xl font-serif font-bold mb-4">La Nostra Missione</h2>
+        </div>
+        
+        <div class="prose prose-lg mx-auto">
+          <p>
+            L'Immaginario nasce nel 2015 come progetto editoriale del Centro di Cultura per l'Educazione Permanente di Ispica, con l'obiettivo di creare uno spazio di informazione, cultura e dibattito per la comunità locale.
+          </p>
+          <p>
+            Ogni mese, il nostro giornale offre una selezione di articoli, interviste e approfondimenti su temi culturali, artistici, storici e sociali, con un'attenzione particolare al territorio di Ispica e alla sua ricca tradizione culturale.
+          </p>
+          <p>
+            La nostra redazione è composta da professionisti e appassionati del mondo della cultura, dell'arte e del giornalismo, che lavorano con dedizione per offrire ai lettori contenuti di qualità e stimolare la partecipazione attiva alla vita culturale della comunità.
+          </p>
+          <p>
+            L'Immaginario è distribuito gratuitamente, sia in formato cartaceo presso il Centro di Cultura e i principali punti di interesse della città, sia in formato digitale attraverso la nostra newsletter e questo sito web.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Collaborate Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-8 text-center">
+          <h2 class="text-3xl font-serif font-bold mb-4">Collabora con Noi</h2>
+          <p class="text-neutral-600 max-w-2xl mx-auto">
+            Hai una passione per la scrittura, l'arte o la cultura? Vuoi contribuire con i tuoi articoli a L'Immaginario? Ecco come fare!
+          </p>
+        </div>
+        
+        <div class="bg-neutral-50 rounded-lg p-8 shadow-sm">
+          <div class="mb-8">
+            <h3 class="text-xl font-serif font-bold mb-4">Linee Guida</h3>
+            <ul class="space-y-2 text-neutral-700">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary-600 mr-2 mt-0.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Gli articoli devono essere originali e non pubblicati altrove.</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary-600 mr-2 mt-0.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>La lunghezza degli articoli deve essere compresa tra le 500 e le 2000 parole.</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary-600 mr-2 mt-0.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>I temi trattati possono spaziare dalla cultura all'arte, dalla storia alle tradizioni locali, dagli eventi agli approfondimenti su temi di attualità.</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary-600 mr-2 mt-0.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>È possibile allegare immagini di cui si detengono i diritti o libere da copyright.</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary-600 mr-2 mt-0.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>La redazione si riserva il diritto di selezionare gli articoli da pubblicare e di apportare eventuali modifiche editoriali.</span>
+              </li>
+            </ul>
+          </div>
+          
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-neutral-700 mb-1">Nome e Cognome</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-neutral-700 mb-1">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label for="title" class="block text-sm font-medium text-neutral-700 mb-1">Titolo dell'Articolo</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+              />
+            </div>
+            
+            <div>
+              <label for="category" class="block text-sm font-medium text-neutral-700 mb-1">Categoria</label>
+              <select
+                id="category"
+                name="category"
+                required
+                class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+              >
+                <option value="">Seleziona una categoria</option>
+                <option value="cultura">Cultura</option>
+                <option value="arte">Arte</option>
+                <option value="storia">Storia</option>
+                <option value="territorio">Territorio</option>
+                <option value="eventi">Eventi</option>
+                <option value="altro">Altro</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="abstract" class="block text-sm font-medium text-neutral-700 mb-1">Abstract (max 300 caratteri)</label>
+              <textarea
+                id="abstract"
+                name="abstract"
+                rows="3"
+                maxlength="300"
+                required
+                class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+              ></textarea>
+            </div>
+            
+            <div>
+              <label for="article" class="block text-sm font-medium text-neutral-700 mb-1">Testo dell'Articolo</label>
+              <textarea
+                id="article"
+                name="article"
+                rows="8"
+                required
+                class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+              ></textarea>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-neutral-700 mb-1">Allegati (opzionale)</label>
+              <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 border-dashed rounded-md">
+                <div class="space-y-1 text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto h-12 w-12 text-neutral-400">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                  </svg>
+                  <div class="flex text-sm text-neutral-600">
+                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-primary-600 hover:text-primary-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500">
+                      <span>Carica un file</span>
+                      <input id="file-upload" name="file-upload" type="file" class="sr-only" multiple />
+                    </label>
+                    <p class="pl-1">o trascina qui</p>
+                  </div>
+                  <p class="text-xs text-neutral-500">
+                    PNG, JPG, PDF fino a 10MB
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <input
+                id="terms"
+                name="terms"
+                type="checkbox"
+                required
+                class="h-4 w-4 rounded border-neutral-300 text-primary-600 focus:ring-primary-500 mt-1"
+              />
+              <label for="terms" class="ml-2 block text-sm text-neutral-600">
+                Accetto la <a href="/privacy" class="text-primary-600 hover:text-primary-700 underline">Privacy Policy</a> e acconsento al trattamento dei miei dati personali
+              </label>
+            </div>
+            
+            <div>
+              <Button type="submit" variant="primary">
+                Invia Proposta
+              </Button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

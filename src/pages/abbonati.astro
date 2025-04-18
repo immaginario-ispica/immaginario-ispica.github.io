@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout title="Abbonati" description="Abbonati a L'Immaginario e ricevi ogni mese il giornale direttamente nella tua casella email" showNewsletter={false}>
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h1 class="text-4xl font-serif font-bold mb-4">Abbonati a L'Immaginario</h1>
+        <p class="text-neutral-600">
+          Ricevi gratuitamente ogni mese il giornale nella tua casella email o ritiralo presso il Centro di Cultura
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <!-- Subscription Options -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <!-- Digital Subscription -->
+          <div class="bg-white rounded-lg shadow-md p-8 border-t-4 border-primary-500 flex flex-col h-full">
+            <div class="mb-6 text-center">
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-100 text-primary-700 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </div>
+              <h2 class="text-2xl font-serif font-bold mb-2">Versione Digitale</h2>
+              <p class="text-neutral-600">
+                Ricevi ogni mese il PDF de L'Immaginario direttamente nella tua casella email
+              </p>
+            </div>
+            
+            <div class="space-y-4 mb-8 text-neutral-700 flex-grow">
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Accesso immediato al nuovo numero non appena disponibile</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Formato PDF ottimizzato per la lettura su dispositivi digitali</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Possibilità di conservare tutti i numeri sul tuo dispositivo</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Zero impatto ambientale</span>
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <Button href="#subscribe-form" variant="primary">
+                Iscriviti alla Newsletter
+              </Button>
+            </div>
+          </div>
+          
+          <!-- Print Subscription -->
+          <div class="bg-white rounded-lg shadow-md p-8 border-t-4 border-accent-500 flex flex-col h-full">
+            <div class="mb-6 text-center">
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent-100 text-accent-700 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                </svg>
+              </div>
+              <h2 class="text-2xl font-serif font-bold mb-2">Versione Cartacea</h2>
+              <p class="text-neutral-600">
+                Ritira gratuitamente la tua copia cartacea presso il Centro di Cultura
+              </p>
+            </div>
+            
+            <div class="space-y-4 mb-8 text-neutral-700 flex-grow">
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-accent-600 mr-2 mt-0.5 flex-shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Esperienza di lettura tradizionale su carta</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-accent-600 mr-2 mt-0.5 flex-shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Disponibile dal 1° di ogni mese presso il Centro di Cultura</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-accent-600 mr-2 mt-0.5 flex-shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Possibilità di incontrare la redazione e altri lettori</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-accent-600 mr-2 mt-0.5 flex-shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Quantità limitata: prenota la tua copia!</span>
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <Button href="/contatti" variant="accent">
+                Dove Trovarci
+              </Button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Newsletter Subscription Form -->
+        <div id="subscribe-form" class="bg-neutral-50 rounded-lg p-8 shadow-sm">
+          <div class="mb-6 text-center">
+            <h2 class="text-2xl font-serif font-bold mb-2">Iscriviti alla Newsletter</h2>
+            <p class="text-neutral-600">
+              Compila il modulo sottostante per ricevere gratuitamente L'Immaginario nella tua casella email ogni mese
+            </p>
+          </div>
+          
+          <form class="space-y-6 max-w-2xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="first-name" class="block text-sm font-medium text-neutral-700 mb-1">Nome</label>
+                <input
+                  type="text"
+                  id="first-name"
+                  name="first-name"
+                  required
+                  class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+                />
+              </div>
+              <div>
+                <label for="last-name" class="block text-sm font-medium text-neutral-700 mb-1">Cognome</label>
+                <input
+                  type="text"
+                  id="last-name"
+                  name="last-name"
+                  required
+                  class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-medium text-neutral-700 mb-1">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+              />
+            </div>
+            
+            <div>
+              <label for="interests" class="block text-sm font-medium text-neutral-700 mb-1">Interessi (opzionale)</label>
+              <select
+                id="interests"
+                name="interests"
+                multiple
+                class="w-full px-4 py-2 rounded-md border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors"
+              >
+                <option value="cultura">Cultura</option>
+                <option value="arte">Arte</option>
+                <option value="storia">Storia e Tradizioni</option>
+                <option value="eventi">Eventi e Manifestazioni</option>
+                <option value="letteratura">Letteratura</option>
+                <option value="territorio">Territorio</option>
+              </select>
+              <p class="text-xs text-neutral-500 mt-1">Tieni premuto Ctrl (Windows) o Cmd (Mac) per selezionare più opzioni</p>
+            </div>
+            
+            <div class="flex items-start">
+              <input
+                id="privacy"
+                name="privacy"
+                type="checkbox"
+                required
+                class="h-4 w-4 rounded border-neutral-300 text-primary-600 focus:ring-primary-500 mt-1"
+              />
+              <label for="privacy" class="ml-2 block text-sm text-neutral-600">
+                Ho letto e accetto la <a href="/privacy" class="text-primary-600 hover:text-primary-700 underline">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per l'invio della newsletter
+              </label>
+            </div>
+            
+            <div>
+              <Button type="submit" variant="primary" size="lg">
+                Iscriviti Ora
+              </Button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

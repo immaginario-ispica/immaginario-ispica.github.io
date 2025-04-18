@@ -1,0 +1,80 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  showNewsletter?: boolean;
+}
+
+const { 
+  title, 
+  description = "L'Immaginario - ISPICA E LE SUE IMMAGINI periodico di società e costume del Centro di Cultura per l'Educazione Permanente",
+  showNewsletter = false
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | L'Immaginario</title>
+    <meta name="description" content={description} />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  </head>
+  <body class="min-h-screen flex flex-col bg-pattern">
+    <Header />
+    
+    <main class="flex-grow">
+      <slot />
+    </main>
+    
+    {showNewsletter && <Newsletter />}
+    
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: 'EB Garamond', Garamond, Georgia, serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'EB Garamond', Garamond, Georgia, serif;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  
+  p, li {
+    font-family: 'EB Garamond', Garamond, Georgia, serif;
+    line-height: 1.6;
+    font-size: 1.125rem;
+  }
+  
+  .bg-pattern {
+    background-color: #f8f8f8;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%23f0f0f0' fill-opacity='0.4'/%3E%3C/svg%3E");
+    background-size: 10px 10px;
+  }
+  
+  /* Add smooth transitions */
+  a, button {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Remove default focus outline and add custom one */
+  :focus {
+    outline: 2px solid rgba(0, 0, 0, 0.2);
+    outline-offset: 2px;
+  }
+</style>

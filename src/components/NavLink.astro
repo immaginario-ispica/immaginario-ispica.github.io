@@ -1,0 +1,23 @@
+---
+export interface Props {
+  href: string;
+  label: string;
+  isExternal?: boolean;
+}
+
+const { href, label, isExternal = false } = Astro.props;
+const { pathname } = Astro.url;
+const isActive = href === '/' ? pathname === href : pathname.startsWith(href);
+---
+
+<a 
+  href={href} 
+  class:list={[
+    'font-medium text-base hover:text-black transition-colors border-b-2',
+    { 'text-black border-black': isActive, 'text-gray-600 border-transparent': !isActive }
+  ]}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noopener noreferrer' : undefined}
+>
+  {label}
+</a>

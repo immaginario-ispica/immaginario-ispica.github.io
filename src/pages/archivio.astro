@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import IssueCover from '../components/IssueCover.astro';
+
+// Sample data - This would usually come from a CMS or API
+const years = ['2025', '2024', '2023', '2022', '2021'];
+
+const issuesByYear = {
+  '2025': [
+    {
+      coverImage: "https://placehold.co/400x550/e5edff/333333?text=L'Immaginario+Maggio+2025",
+      title: "Primavera di Cultura: Eventi e Iniziative",
+      issueNumber: "42",
+      date: "Maggio 2025",
+      pdfLink: "#"
+    },
+    {
+      coverImage: "https://placehold.co/400x550/fff5e5/333333?text=L'Immaginario+Aprile+2025",
+      title: "Tradizioni Pasquali nel Territorio",
+      issueNumber: "41",
+      date: "Aprile 2025",
+      pdfLink: "#"
+    },
+    {
+      coverImage: "https://placehold.co/400x550/e5fff5/333333?text=L'Immaginario+Marzo+2025",
+      title: "Donne e Cultura: Storie di Innovazione",
+      issueNumber: "40",
+      date: "Marzo 2025",
+      pdfLink: "#"
+    },
+    {
+      coverImage: "https://placehold.co/400x550/f5e5ff/333333?text=L'Immaginario+Febbraio+2025",
+      title: "Carnevale: Tra Storia e Divertimento",
+      issueNumber: "39",
+      date: "Febbraio 2025",
+      pdfLink: "#"
+    },
+    {
+      coverImage: "https://placehold.co/400x550/e5f5ff/333333?text=L'Immaginario+Gennaio+2025",
+      title: "Un Nuovo Anno di Cultura",
+      issueNumber: "38",
+      date: "Gennaio 2025",
+      pdfLink: "#"
+    }
+  ],
+  '2024': [
+    {
+      coverImage: "https://placehold.co/400x550/ffe5e5/333333?text=L'Immaginario+Dicembre+2024",
+      title: "Feste e Tradizioni Invernali",
+      issueNumber: "37",
+      date: "Dicembre 2024",
+      pdfLink: "#"
+    },
+    {
+      coverImage: "https://placehold.co/400x550/e5e5ff/333333?text=L'Immaginario+Novembre+2024",
+      title: "Ispica: Storia e Patrimonio",
+      issueNumber: "36",
+      date: "Novembre 2024",
+      pdfLink: "#"
+    },
+    // Additional issues would be listed here
+  ],
+  '2023': [
+    // Sample issues for 2023
+  ],
+  '2022': [
+    // Sample issues for 2022
+  ],
+  '2021': [
+    // Sample issues for 2021
+  ]
+};
+
+// Default to showing the most recent year
+const defaultYear = years[0];
+---
+
+<Layout title="Archivio Numeri" description="Sfoglia l'archivio completo de L'Immaginario, il giornale mensile gratuito del Centro di Cultura per l'Educazione Permanente di Ispica" showNewsletter={true}>
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h1 class="text-4xl font-serif font-bold mb-4">Archivio Numeri</h1>
+        <p class="text-neutral-600">
+          Sfoglia l'archivio completo de L'Immaginario e scarica i numeri precedenti in formato PDF
+        </p>
+      </div>
+      
+      <!-- Year Selector -->
+      <div class="mb-12">
+        <div class="border-b border-neutral-200">
+          <nav class="flex flex-wrap -mb-px" aria-label="Anni">
+            {years.map(year => (
+              <button
+                class:list={[
+                  "inline-block py-4 px-6 text-sm font-medium border-b-2 transition-colors",
+                  { 
+                    "border-primary-600 text-primary-700": year === defaultYear,
+                    "border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300": year !== defaultYear
+                  }
+                ]}
+                data-year={year}
+                aria-selected={year === defaultYear ? "true" : "false"}
+              >
+                {year}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+      
+      <!-- Issues Grid -->
+      {years.map(year => (
+        <div 
+          id={`year-${year}`} 
+          class:list={[
+            "year-content grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6",
+            { "hidden": year !== defaultYear }
+          ]}
+        >
+          {issuesByYear[year]?.map(issue => (
+            <IssueCover
+              coverImage={issue.coverImage}
+              title={issue.title}
+              issueNumber={issue.issueNumber}
+              date={issue.date}
+              pdfLink={issue.pdfLink}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Year tabs functionality
+  const yearButtons = document.querySelectorAll('[data-year]');
+  const yearContents = document.querySelectorAll('.year-content');
+  
+  yearButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const year = button.getAttribute('data-year');
+      
+      // Update active tab
+      yearButtons.forEach(btn => {
+        btn.classList.remove('border-primary-600', 'text-primary-700');
+        btn.classList.add('border-transparent', 'text-neutral-500', 'hover:text-neutral-700', 'hover:border-neutral-300');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      
+      button.classList.remove('border-transparent', 'text-neutral-500', 'hover:text-neutral-700', 'hover:border-neutral-300');
+      button.classList.add('border-primary-600', 'text-primary-700');
+      button.setAttribute('aria-selected', 'true');
+      
+      // Show selected year content
+      yearContents.forEach(content => {
+        content.classList.add('hidden');
+      });
+      
+      document.getElementById(`year-${year}`)?.classList.remove('hidden');
+    });
+  });
+</script>

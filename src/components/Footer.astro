@@ -1,0 +1,65 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-neutral-950 text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- About -->
+      <div>
+        <h3 class="text-xl font-serif font-bold mb-4">L'Immaginario</h3>
+        <p class="text-neutral-300 mb-4">
+          Giornale mensile gratuito del Centro di Cultura per l'Educazione Permanente di Ispica.
+        </p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#" class="text-white hover:text-accent-400" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="#" class="text-white hover:text-accent-400" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="#" class="text-white hover:text-accent-400" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-xl font-serif font-bold mb-4">Link Utili</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><a href="/archivio" class="hover:text-white">Archivio Numeri</a></li>
+          <li><a href="/redazione" class="hover:text-white">Redazione & Collabora</a></li>
+          <li><a href="/abbonati" class="hover:text-white">Abbonati alla Newsletter</a></li>
+          <li><a href="/centro-cultura" class="hover:text-white">Centro di Cultura</a></li>
+          <li><a href="/contatti" class="hover:text-white">Contatti</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact -->
+      <div>
+        <h3 class="text-xl font-serif font-bold mb-4">Contatti</h3>
+        <address class="not-italic text-neutral-300">
+          <p class="mb-2">Centro di Cultura per l'Educazione Permanente</p>
+          <p class="mb-2">Via Example, 123</p>
+          <p class="mb-2">97014 Ispica (RG)</p>
+          <p class="mb-2">Email: <a href="mailto:info@limmaginario.it" class="hover:text-white">info@limmaginario.it</a></p>
+          <p>Tel: <a href="tel:+390932123456" class="hover:text-white">+39 0932 123456</a></p>
+        </address>
+      </div>
+    </div>
+    
+    <div class="border-t border-neutral-800 mt-8 pt-8 text-center text-neutral-400 text-sm">
+      <p>&copy; {currentYear} L'Immaginario - Tutti i diritti riservati</p>
+      <p class="mt-2">Un progetto del Centro di Cultura per l'Educazione Permanente di Ispica</p>
+    </div>
+  </div>
+</footer>
